@@ -1,131 +1,216 @@
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=Great+Vibes&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
-  .inv-wrap{max-width:620px;margin:0 auto;padding:1.5rem 1rem 2rem}
-  .card{background:#fffef9;border:1px solid #d4af6a;border-radius:4px;position:relative;overflow:hidden;padding:2.5rem 2.8rem 2.2rem}
-  .card::before,.card::after{content:'';position:absolute;border:0.5px solid #d4af6a;border-radius:3px}
-  .card::before{inset:10px;pointer-events:none;z-index:0}
-  .card::after{inset:14px;pointer-events:none;z-index:0;opacity:.4}
-  .inner{position:relative;z-index:1;text-align:center}
-  .cross-wrap{margin-bottom:0.5rem}
-  .cross-wrap svg{width:52px;height:52px}
-  .label-top{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.25em;color:#b89040;text-transform:uppercase;margin-bottom:.5rem}
-  .name{font-family:'Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:300;font-style:italic;color:#3a2a0e;line-height:1.1;margin-bottom:.2rem}
-  .subtitle{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-style:italic;color:#8a6a30;letter-spacing:.08em;margin-bottom:1.5rem}
-  .divider{display:flex;align-items:center;gap:10px;margin:0 auto 1.5rem;max-width:280px}
-  .divider-line{flex:1;height:.5px;background:#d4af6a}
-  .divider-diamond{width:6px;height:6px;background:#d4af6a;transform:rotate(45deg);flex-shrink:0}
-  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;text-align:left}
-  .detail-cell{border-left:1.5px solid #d4af6a;padding-left:12px}
-  .detail-icon{font-size:9px;color:#b89040;margin-bottom:3px;font-family:'Cinzel',serif;letter-spacing:.15em;text-transform:uppercase}
-  .detail-main{font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:500;color:#2c1f08;line-height:1.3}
-  .detail-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;color:#7a5a20;font-style:italic}
-  .placeholder-badge{display:inline-block;background:#f5edd0;border:0.5px solid #d4af6a;color:#8a6a30;font-size:11px;padding:2px 10px;border-radius:2px;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;margin-top:3px}
-  .rsvp-section{background:#fdf6e3;border:0.5px solid #d4af6a;border-radius:3px;padding:1.4rem 1.6rem;margin-top:1.5rem;text-align:left}
-  .rsvp-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;color:#b89040;text-transform:uppercase;text-align:center;margin-bottom:1rem}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.7rem}
+  .wrap{max-width:580px;margin:0 auto;padding:1rem}
+  .card{background:#fff;border:1px solid #f0c0d0;border-radius:6px;position:relative;overflow:hidden;padding:2.8rem 2.4rem 2.2rem;text-align:center}
+  .card::before{content:'';position:absolute;inset:8px;border:0.5px solid #f5d5e0;border-radius:4px;pointer-events:none;z-index:0}
+  .inner{position:relative;z-index:1}
+  .corner{position:absolute;width:110px;height:110px;pointer-events:none}
+  .corner.tl{top:0;left:0}
+  .corner.tr{top:0;right:0;transform:scaleX(-1)}
+  .corner.bl{bottom:0;left:0;transform:scaleY(-1)}
+  .corner.br{bottom:0;right:0;transform:scale(-1,-1)}
+  .lbl{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;color:#b06080;margin-bottom:.5rem;text-transform:uppercase}
+  .big-name{font-family:'Cinzel',serif;font-size:46px;font-weight:500;color:#c04878;letter-spacing:.12em;line-height:1;margin-bottom:.6rem}
+  .monogram-wrap{margin:.3rem auto 1rem;width:160px;height:170px;position:relative}
+  .divider{display:flex;align-items:center;gap:8px;max-width:260px;margin:0 auto 1.2rem}
+  .dline{flex:1;height:.5px;background:#f0a0c0}
+  .dpetal{font-size:14px;color:#e080a8;line-height:1}
+  .date-row{font-family:'Cinzel',serif;font-size:13px;color:#555;letter-spacing:.15em;margin-bottom:.15rem}
+  .date-row span{color:#c04878;font-weight:500}
+  .date-year{font-family:'Cinzel',serif;font-size:15px;color:#c04878;font-weight:500;letter-spacing:.2em;margin-bottom:1.2rem}
+  .loc-title{font-family:'Cinzel',serif;font-size:12px;font-weight:500;color:#c04878;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.2rem}
+  .loc-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;color:#888;letter-spacing:.08em;text-transform:uppercase;line-height:1.6}
+  .after-label{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;color:#aaa;letter-spacing:.15em;text-transform:uppercase;margin:1rem 0 .3rem}
+  .placeholder-badge{display:inline-block;background:#fff0f5;border:0.5px solid #f0a0c0;color:#c04878;font-size:11px;padding:2px 12px;border-radius:2px;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;margin-top:3px}
+  .rsvp-note{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;color:#c090a8;letter-spacing:.12em;text-transform:uppercase;margin:1.2rem 0 0}
+  .rsvp-section{background:#fff8fb;border:0.5px solid #f0c0d0;border-radius:4px;padding:1.3rem 1.5rem;margin-top:1.2rem;text-align:left}
+  .rsvp-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.22em;color:#c04878;text-transform:uppercase;text-align:center;margin-bottom:1rem}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem}
   .form-row.full{grid-template-columns:1fr}
-  label{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;color:#7a5a20;letter-spacing:.05em;display:block;margin-bottom:3px;font-style:italic}
-  input,select,textarea{width:100%;background:#fffef9;border:0.5px solid #c9a44e;border-radius:2px;padding:7px 10px;font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#2c1f08;outline:none;transition:border .2s}
-  input:focus,select:focus,textarea:focus{border-color:#8a6a30}
+  label{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;color:#b06080;font-style:italic;display:block;margin-bottom:2px}
+  input,select,textarea{width:100%;background:#fff;border:0.5px solid #f0a0c0;border-radius:2px;padding:7px 10px;font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#3a1828;outline:none;transition:border .2s}
+  input:focus,select:focus,textarea:focus{border-color:#c04878}
   select{cursor:pointer}
-  textarea{resize:vertical;min-height:60px}
-  .btn-confirm{display:block;width:100%;margin-top:1rem;background:#2c1f08;color:#f5e8c0;border:none;border-radius:2px;padding:11px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;cursor:pointer;transition:background .2s}
-  .btn-confirm:hover{background:#b89040}
-  .footer-note{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;color:#b89040;text-align:center;margin-top:1.2rem;font-style:italic}
-  .success-box{display:none;text-align:center;padding:1.2rem;background:#f0f8ec;border:0.5px solid #639922;border-radius:3px;margin-top:.7rem}
-  .success-box p{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#3B6D11}
-  @media(max-width:480px){
-    .card{padding:2rem 1.4rem 1.8rem}
-    .detail-grid{grid-template-columns:1fr}
+  textarea{resize:vertical;min-height:56px}
+  .btn-confirm{display:block;width:100%;margin-top:.9rem;background:#c04878;color:#fff;border:none;border-radius:2px;padding:11px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.22em;cursor:pointer;transition:background .2s}
+  .btn-confirm:hover{background:#a03060}
+  .success-box{display:none;text-align:center;padding:1rem;background:#fff0f5;border:0.5px solid #f0a0c0;border-radius:3px;margin-top:.7rem}
+  .success-box p{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#c04878;font-style:italic}
+  @media(max-width:460px){
+    .card{padding:2.2rem 1.2rem 1.8rem}
+    .big-name{font-size:34px}
+    .corner{width:80px;height:80px}
     .form-row{grid-template-columns:1fr}
-    .name{font-size:40px}
   }
 </style>
 
-<div class="inv-wrap">
-  <div class="card">
-    <div class="inner">
-      <div class="cross-wrap">
-        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="26" cy="26" r="24" stroke="#d4af6a" stroke-width="0.7"/>
-          <circle cx="26" cy="26" r="19" stroke="#d4af6a" stroke-width="0.4" opacity="0.5"/>
-          <rect x="23.5" y="10" width="5" height="32" rx="1" fill="#d4af6a"/>
-          <rect x="14" y="18" width="24" height="5" rx="1" fill="#d4af6a"/>
-          <circle cx="26" cy="26" r="4" fill="#fffef9" stroke="#d4af6a" stroke-width="0.7"/>
-          <circle cx="26" cy="26" r="2" fill="#d4af6a"/>
-        </svg>
-      </div>
-      <p class="label-top">Prima Comunione</p>
-      <h1 class="name">Beatrice</h1>
-      <p class="subtitle">riceve per la prima volta il Corpo di Cristo</p>
-      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-      <div class="detail-grid">
-        <div class="detail-cell">
-          <p class="detail-icon">Data &amp; Ora</p>
-          <p class="detail-main">Sabato 24 Maggio</p>
-          <p class="detail-sub">ore 11:30</p>
-        </div>
-        <div class="detail-cell">
-          <p class="detail-icon">Celebrazione</p>
-          <p class="detail-main">Chiesa di San Domenico</p>
-          <p class="detail-sub">Bologna</p>
-        </div>
-        <div class="detail-cell" style="margin-top:.6rem">
-          <p class="detail-icon">Pranzo</p>
-          <p class="detail-main">Ristorante</p>
-          <span class="placeholder-badge">da confermare</span>
-        </div>
-        <div class="detail-cell" style="margin-top:.6rem">
-          <p class="detail-icon">Conferma entro</p>
-          <p class="detail-main">15 Maggio 2025</p>
-          <p class="detail-sub">grazie per la risposta</p>
-        </div>
-      </div>
-      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-      <div class="rsvp-section">
-        <p class="rsvp-title">Conferma la tua presenza</p>
-        <div class="form-row">
-          <div>
-            <label>Nome e Cognome *</label>
-            <input type="text" id="nome" placeholder="Mario Rossi">
-          </div>
-          <div>
-            <label>Numero di partecipanti *</label>
-            <select id="ospiti">
-              <option value="">—</option>
-              <option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6+</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row full">
-          <div>
-            <label>Presenze al pranzo</label>
-            <select id="pranzo">
-              <option value="">—</option>
-              <option>Sì, ci saremo</option>
-              <option>No, solo alla messa</option>
-              <option>Da confermare</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row full">
-          <div>
-            <label>Note o allergie alimentari</label>
-            <textarea id="note" placeholder="Eventuali intolleranze, allergie o note…"></textarea>
-          </div>
-        </div>
-        <div id="err-msg" style="color:#A32D2D;font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;margin-top:.4rem;display:none">Compila nome e numero di partecipanti.</div>
-        <button class="btn-confirm" onclick="sendRSVP()">Conferma la presenza →</button>
-        <div class="success-box" id="success">
-          <p>Grazie mille! La tua conferma è stata inviata. Ci vediamo il 24 maggio ✨</p>
-        </div>
-      </div>
-      <p class="footer-note">Con gioia vi aspettiamo a condividere questo giorno speciale</p>
+<div class="wrap">
+<div class="card">
+
+  <!-- Corner flowers TL -->
+  <svg class="corner tl" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="18" cy="55" rx="9" ry="22" fill="#c8e6c0" transform="rotate(-40 18 55)"/>
+    <ellipse cx="30" cy="30" rx="8" ry="20" fill="#b8dba8" transform="rotate(-70 30 30)"/>
+    <ellipse cx="10" cy="28" rx="7" ry="17" fill="#d0eecc" transform="rotate(-15 10 28)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="16" fill="#c0e4b4" transform="rotate(-55 42 18)"/>
+    <circle cx="38" cy="52" r="16" fill="#f48cb0"/>
+    <circle cx="38" cy="52" r="10" fill="#e8608e"/>
+    <circle cx="38" cy="52" r="5" fill="#c03870"/>
+    <ellipse cx="22" cy="52" rx="8" ry="5" fill="#f8b0cc" transform="rotate(10 22 52)"/>
+    <ellipse cx="54" cy="52" rx="8" ry="5" fill="#f8b0cc" transform="rotate(-10 54 52)"/>
+    <ellipse cx="38" cy="36" rx="5" ry="8" fill="#f8b0cc"/>
+    <ellipse cx="38" cy="68" rx="5" ry="8" fill="#f8b0cc"/>
+    <ellipse cx="26" cy="40" rx="5" ry="8" fill="#fac8da" transform="rotate(40 26 40)"/>
+    <ellipse cx="50" cy="64" rx="5" ry="8" fill="#fac8da" transform="rotate(40 50 64)"/>
+    <circle cx="65" cy="20" r="9" fill="#f8a8c4" opacity=".7"/>
+    <circle cx="65" cy="20" r="5" fill="#e87aa0" opacity=".8"/>
+    <ellipse cx="56" cy="20" rx="4" ry="3" fill="#fcc8dc" opacity=".7"/>
+    <ellipse cx="74" cy="20" rx="4" ry="3" fill="#fcc8dc" opacity=".7"/>
+    <ellipse cx="65" cy="11" rx="3" ry="5" fill="#fcc8dc" opacity=".7"/>
+    <ellipse cx="65" cy="29" rx="3" ry="5" fill="#fcc8dc" opacity=".7"/>
+    <circle cx="85" cy="12" r="5" fill="#f8c0d4" opacity=".5"/>
+    <circle cx="20" cy="85" r="6" fill="#f8c0d4" opacity=".5"/>
+    <circle cx="8" cy="70" r="4" fill="#f8c0d4" opacity=".4"/>
+  </svg>
+
+  <!-- Corner flowers TR (mirrored via CSS) -->
+  <svg class="corner tr" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="18" cy="55" rx="9" ry="22" fill="#c8e6c0" transform="rotate(-40 18 55)"/>
+    <ellipse cx="30" cy="30" rx="8" ry="20" fill="#b8dba8" transform="rotate(-70 30 30)"/>
+    <ellipse cx="10" cy="28" rx="7" ry="17" fill="#d0eecc" transform="rotate(-15 10 28)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="16" fill="#c0e4b4" transform="rotate(-55 42 18)"/>
+    <circle cx="38" cy="52" r="16" fill="#f48cb0"/>
+    <circle cx="38" cy="52" r="10" fill="#e8608e"/>
+    <circle cx="38" cy="52" r="5" fill="#c03870"/>
+    <ellipse cx="22" cy="52" rx="8" ry="5" fill="#f8b0cc" transform="rotate(10 22 52)"/>
+    <ellipse cx="54" cy="52" rx="8" ry="5" fill="#f8b0cc" transform="rotate(-10 54 52)"/>
+    <ellipse cx="38" cy="36" rx="5" ry="8" fill="#f8b0cc"/>
+    <ellipse cx="38" cy="68" rx="5" ry="8" fill="#f8b0cc"/>
+    <ellipse cx="65" cy="20" r="9" fill="#f8a8c4" opacity=".7"/>
+    <circle cx="85" cy="12" r="5" fill="#f8c0d4" opacity=".5"/>
+    <circle cx="20" cy="85" r="6" fill="#f8c0d4" opacity=".5"/>
+  </svg>
+
+  <!-- Corner BL -->
+  <svg class="corner bl" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="18" cy="55" rx="9" ry="22" fill="#c8e6c0" transform="rotate(-40 18 55)"/>
+    <ellipse cx="30" cy="30" rx="8" ry="20" fill="#b8dba8" transform="rotate(-70 30 30)"/>
+    <ellipse cx="10" cy="28" rx="7" ry="17" fill="#d0eecc" transform="rotate(-15 10 28)"/>
+    <circle cx="38" cy="52" r="14" fill="#f8b0cc" opacity=".7"/>
+    <circle cx="38" cy="52" r="8" fill="#f090b8" opacity=".8"/>
+    <circle cx="20" cy="85" r="6" fill="#f8c0d4" opacity=".5"/>
+    <circle cx="8" cy="70" r="4" fill="#f8c0d4" opacity=".4"/>
+  </svg>
+
+  <!-- Corner BR -->
+  <svg class="corner br" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="18" cy="55" rx="9" ry="22" fill="#c8e6c0" transform="rotate(-40 18 55)"/>
+    <ellipse cx="30" cy="30" rx="8" ry="20" fill="#b8dba8" transform="rotate(-70 30 30)"/>
+    <ellipse cx="10" cy="28" rx="7" ry="17" fill="#d0eecc" transform="rotate(-15 10 28)"/>
+    <circle cx="38" cy="52" r="14" fill="#f8b0cc" opacity=".7"/>
+    <circle cx="38" cy="52" r="8" fill="#f090b8" opacity=".8"/>
+    <circle cx="20" cy="85" r="6" fill="#f8c0d4" opacity=".5"/>
+  </svg>
+
+  <div class="inner">
+    <p class="lbl">La prima comunione di</p>
+    <h1 class="big-name">BEATRICE</h1>
+
+    <!-- Decorative B with flowers -->
+    <div class="monogram-wrap">
+      <svg viewBox="0 0 160 170" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:160px;height:170px">
+        <!-- Big B letter -->
+        <text x="10" y="148" font-family="Georgia,serif" font-size="155" font-weight="700" fill="#e87aaa" opacity=".85">B</text>
+        <!-- Leaves -->
+        <ellipse cx="72" cy="108" rx="7" ry="24" fill="#7ab870" transform="rotate(-30 72 108)" opacity=".9"/>
+        <ellipse cx="58" cy="95" rx="5" ry="18" fill="#8dc880" transform="rotate(-55 58 95)" opacity=".8"/>
+        <ellipse cx="90" cy="118" rx="5" ry="16" fill="#90cc84" transform="rotate(10 90 118)" opacity=".8"/>
+        <ellipse cx="48" cy="112" rx="4" ry="14" fill="#a0d494" transform="rotate(-80 48 112)" opacity=".7"/>
+        <ellipse cx="100" cy="102" rx="4" ry="13" fill="#88c47c" transform="rotate(30 100 102)" opacity=".7"/>
+        <!-- Main peony -->
+        <circle cx="75" cy="115" r="26" fill="#f060a0"/>
+        <circle cx="75" cy="115" r="19" fill="#e84090"/>
+        <circle cx="75" cy="115" r="12" fill="#d02070"/>
+        <ellipse cx="75" cy="89" rx="10" ry="15" fill="#f488bc" opacity=".85"/>
+        <ellipse cx="75" cy="141" rx="10" ry="15" fill="#f488bc" opacity=".85"/>
+        <ellipse cx="49" cy="115" rx="10" ry="14" fill="#f488bc" opacity=".85" transform="rotate(15 49 115)"/>
+        <ellipse cx="101" cy="115" rx="10" ry="14" fill="#f488bc" opacity=".85" transform="rotate(-15 101 115)"/>
+        <ellipse cx="58" cy="98" rx="9" ry="13" fill="#f8aac8" opacity=".7" transform="rotate(45 58 98)"/>
+        <ellipse cx="92" cy="132" rx="9" ry="13" fill="#f8aac8" opacity=".7" transform="rotate(45 92 132)"/>
+        <circle cx="75" cy="115" r="6" fill="#c01860"/>
+        <!-- Small bud top right -->
+        <circle cx="110" cy="75" r="13" fill="#f8a8c8" opacity=".85"/>
+        <circle cx="110" cy="75" r="8" fill="#f080b0"/>
+        <ellipse cx="110" cy="62" rx="6" ry="9" fill="#fac8dc" opacity=".8"/>
+        <ellipse cx="110" cy="88" rx="6" ry="9" fill="#fac8dc" opacity=".8"/>
+        <ellipse cx="97" cy="75" rx="6" ry="8" fill="#fac8dc" opacity=".8"/>
+        <ellipse cx="123" cy="75" rx="6" ry="8" fill="#fac8dc" opacity=".8"/>
+        <!-- tiny blossom -->
+        <circle cx="42" cy="78" r="8" fill="#f8c0d8" opacity=".7"/>
+        <circle cx="42" cy="78" r="4" fill="#f090b8" opacity=".8"/>
+      </svg>
     </div>
+
+    <div class="divider"><div class="dline"></div><div class="dpetal">✿</div><div class="dline"></div></div>
+
+    <p class="date-row">Domenica <span>24 Maggio</span> ore <span>11:30</span></p>
+    <p class="date-year">2025</p>
+
+    <div class="divider"><div class="dline"></div><div class="dpetal">✿</div><div class="dline"></div></div>
+
+    <p class="loc-title">Chiesa di San Domenico</p>
+    <p class="loc-sub">Bologna</p>
+
+    <p class="after-label">Dopo la cerimonia festeggeremo presso</p>
+    <p class="loc-title">Ristorante</p>
+    <span class="placeholder-badge">location da confermare</span>
+
+    <p class="rsvp-note">È gradita gentile conferma</p>
+
+    <div class="rsvp-section">
+      <p class="rsvp-title">Conferma la tua presenza</p>
+      <div class="form-row">
+        <div>
+          <label>Nome e Cognome *</label>
+          <input type="text" id="nome" placeholder="Mario Rossi">
+        </div>
+        <div>
+          <label>Numero di partecipanti *</label>
+          <select id="ospiti">
+            <option value="">—</option>
+            <option>1</option><option>2</option><option>3</option>
+            <option>4</option><option>5</option><option>6+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row full">
+        <div>
+          <label>Presenze al pranzo</label>
+          <select id="pranzo">
+            <option value="">—</option>
+            <option>Sì, ci saremo</option>
+            <option>No, solo alla messa</option>
+            <option>Da confermare</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row full">
+        <div>
+          <label>Note o allergie alimentari</label>
+          <textarea id="note" placeholder="Eventuali intolleranze, allergie o note…"></textarea>
+        </div>
+      </div>
+      <div id="err-msg" style="color:#c04878;font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;margin-top:.3rem;display:none">Compila nome e numero di partecipanti.</div>
+      <button class="btn-confirm" onclick="sendRSVP()">Conferma la presenza →</button>
+      <div class="success-box" id="success">
+        <p>Grazie mille! Ci vediamo il 24 maggio 🌸</p>
+      </div>
+    </div>
+
   </div>
+</div>
 </div>
 
 <script>
@@ -148,7 +233,7 @@ function sendRSVP(){
     'Presenza al pranzo: '+pranzo+'\n'+
     'Note / allergie: '+note+'\n\n'+
     '────────────────────\n'+
-    'Inviato tramite invito digitale — Prima Comunione di Beatrice, 24 Maggio'
+    'Inviato tramite invito digitale — Prima Comunione di Beatrice, 24 Maggio 2025'
   );
   window.location.href='mailto:'+to+'?cc='+cc+'&subject='+subject+'&body='+body;
   document.getElementById('success').style.display='block';
