@@ -1,0 +1,156 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  .inv-wrap{max-width:620px;margin:0 auto;padding:1.5rem 1rem 2rem}
+  .card{background:#fffef9;border:1px solid #d4af6a;border-radius:4px;position:relative;overflow:hidden;padding:2.5rem 2.8rem 2.2rem}
+  .card::before,.card::after{content:'';position:absolute;border:0.5px solid #d4af6a;border-radius:3px}
+  .card::before{inset:10px;pointer-events:none;z-index:0}
+  .card::after{inset:14px;pointer-events:none;z-index:0;opacity:.4}
+  .inner{position:relative;z-index:1;text-align:center}
+  .cross-wrap{margin-bottom:0.5rem}
+  .cross-wrap svg{width:52px;height:52px}
+  .label-top{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.25em;color:#b89040;text-transform:uppercase;margin-bottom:.5rem}
+  .name{font-family:'Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:300;font-style:italic;color:#3a2a0e;line-height:1.1;margin-bottom:.2rem}
+  .subtitle{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-style:italic;color:#8a6a30;letter-spacing:.08em;margin-bottom:1.5rem}
+  .divider{display:flex;align-items:center;gap:10px;margin:0 auto 1.5rem;max-width:280px}
+  .divider-line{flex:1;height:.5px;background:#d4af6a}
+  .divider-diamond{width:6px;height:6px;background:#d4af6a;transform:rotate(45deg);flex-shrink:0}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;text-align:left}
+  .detail-cell{border-left:1.5px solid #d4af6a;padding-left:12px}
+  .detail-icon{font-size:9px;color:#b89040;margin-bottom:3px;font-family:'Cinzel',serif;letter-spacing:.15em;text-transform:uppercase}
+  .detail-main{font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:500;color:#2c1f08;line-height:1.3}
+  .detail-sub{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;color:#7a5a20;font-style:italic}
+  .placeholder-badge{display:inline-block;background:#f5edd0;border:0.5px solid #d4af6a;color:#8a6a30;font-size:11px;padding:2px 10px;border-radius:2px;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;margin-top:3px}
+  .rsvp-section{background:#fdf6e3;border:0.5px solid #d4af6a;border-radius:3px;padding:1.4rem 1.6rem;margin-top:1.5rem;text-align:left}
+  .rsvp-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;color:#b89040;text-transform:uppercase;text-align:center;margin-bottom:1rem}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.7rem}
+  .form-row.full{grid-template-columns:1fr}
+  label{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;color:#7a5a20;letter-spacing:.05em;display:block;margin-bottom:3px;font-style:italic}
+  input,select,textarea{width:100%;background:#fffef9;border:0.5px solid #c9a44e;border-radius:2px;padding:7px 10px;font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#2c1f08;outline:none;transition:border .2s}
+  input:focus,select:focus,textarea:focus{border-color:#8a6a30}
+  select{cursor:pointer}
+  textarea{resize:vertical;min-height:60px}
+  .btn-confirm{display:block;width:100%;margin-top:1rem;background:#2c1f08;color:#f5e8c0;border:none;border-radius:2px;padding:11px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;cursor:pointer;transition:background .2s}
+  .btn-confirm:hover{background:#b89040}
+  .footer-note{font-family:'Cormorant Garamond',Georgia,serif;font-size:12px;color:#b89040;text-align:center;margin-top:1.2rem;font-style:italic}
+  .success-box{display:none;text-align:center;padding:1.2rem;background:#f0f8ec;border:0.5px solid #639922;border-radius:3px;margin-top:.7rem}
+  .success-box p{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:#3B6D11}
+  @media(max-width:480px){
+    .card{padding:2rem 1.4rem 1.8rem}
+    .detail-grid{grid-template-columns:1fr}
+    .form-row{grid-template-columns:1fr}
+    .name{font-size:40px}
+  }
+</style>
+
+<div class="inv-wrap">
+  <div class="card">
+    <div class="inner">
+      <div class="cross-wrap">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="24" stroke="#d4af6a" stroke-width="0.7"/>
+          <circle cx="26" cy="26" r="19" stroke="#d4af6a" stroke-width="0.4" opacity="0.5"/>
+          <rect x="23.5" y="10" width="5" height="32" rx="1" fill="#d4af6a"/>
+          <rect x="14" y="18" width="24" height="5" rx="1" fill="#d4af6a"/>
+          <circle cx="26" cy="26" r="4" fill="#fffef9" stroke="#d4af6a" stroke-width="0.7"/>
+          <circle cx="26" cy="26" r="2" fill="#d4af6a"/>
+        </svg>
+      </div>
+      <p class="label-top">Prima Comunione</p>
+      <h1 class="name">Beatrice</h1>
+      <p class="subtitle">riceve per la prima volta il Corpo di Cristo</p>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+      <div class="detail-grid">
+        <div class="detail-cell">
+          <p class="detail-icon">Data &amp; Ora</p>
+          <p class="detail-main">Sabato 24 Maggio</p>
+          <p class="detail-sub">ore 11:30</p>
+        </div>
+        <div class="detail-cell">
+          <p class="detail-icon">Celebrazione</p>
+          <p class="detail-main">Chiesa di San Domenico</p>
+          <p class="detail-sub">Bologna</p>
+        </div>
+        <div class="detail-cell" style="margin-top:.6rem">
+          <p class="detail-icon">Pranzo</p>
+          <p class="detail-main">Ristorante</p>
+          <span class="placeholder-badge">da confermare</span>
+        </div>
+        <div class="detail-cell" style="margin-top:.6rem">
+          <p class="detail-icon">Conferma entro</p>
+          <p class="detail-main">15 Maggio 2025</p>
+          <p class="detail-sub">grazie per la risposta</p>
+        </div>
+      </div>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+      <div class="rsvp-section">
+        <p class="rsvp-title">Conferma la tua presenza</p>
+        <div class="form-row">
+          <div>
+            <label>Nome e Cognome *</label>
+            <input type="text" id="nome" placeholder="Mario Rossi">
+          </div>
+          <div>
+            <label>Numero di partecipanti *</label>
+            <select id="ospiti">
+              <option value="">—</option>
+              <option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div>
+            <label>Presenze al pranzo</label>
+            <select id="pranzo">
+              <option value="">—</option>
+              <option>Sì, ci saremo</option>
+              <option>No, solo alla messa</option>
+              <option>Da confermare</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div>
+            <label>Note o allergie alimentari</label>
+            <textarea id="note" placeholder="Eventuali intolleranze, allergie o note…"></textarea>
+          </div>
+        </div>
+        <div id="err-msg" style="color:#A32D2D;font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;margin-top:.4rem;display:none">Compila nome e numero di partecipanti.</div>
+        <button class="btn-confirm" onclick="sendRSVP()">Conferma la presenza →</button>
+        <div class="success-box" id="success">
+          <p>Grazie mille! La tua conferma è stata inviata. Ci vediamo il 24 maggio ✨</p>
+        </div>
+      </div>
+      <p class="footer-note">Con gioia vi aspettiamo a condividere questo giorno speciale</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function sendRSVP(){
+  var nome=document.getElementById('nome').value.trim();
+  var ospiti=document.getElementById('ospiti').value;
+  var pranzo=document.getElementById('pranzo').value||'Non specificato';
+  var note=document.getElementById('note').value.trim()||'Nessuna nota';
+  var err=document.getElementById('err-msg');
+  if(!nome||!ospiti){err.style.display='block';return;}
+  err.style.display='none';
+  var to='digiovannifederica23@gmail.com';
+  var cc='mattei.stefania@libero.it';
+  var subject=encodeURIComponent('RSVP Comunione Beatrice — '+nome);
+  var body=encodeURIComponent(
+    'CONFERMA DI PRESENZA\n'+
+    '════════════════════\n\n'+
+    'Nome: '+nome+'\n'+
+    'Partecipanti: '+ospiti+'\n'+
+    'Presenza al pranzo: '+pranzo+'\n'+
+    'Note / allergie: '+note+'\n\n'+
+    '────────────────────\n'+
+    'Inviato tramite invito digitale — Prima Comunione di Beatrice, 24 Maggio'
+  );
+  window.location.href='mailto:'+to+'?cc='+cc+'&subject='+subject+'&body='+body;
+  document.getElementById('success').style.display='block';
+}
+</script>
