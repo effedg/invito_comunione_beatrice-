@@ -250,22 +250,22 @@
 
     <div class="info-block">
       <p class="info-main">Domenica 24 Maggio &nbsp;·&nbsp; ore 11:30</p>
-      <p class="info-year">2025</p>
+      <p class="info-year">2026</p>
     </div>
 
     <div class="divider" style="margin:.9rem auto"><div class="dline"></div><div class="dsym"></div><div class="dline"></div></div>
 
     <div class="info-block">
       <p class="info-label">Chiesa</p>
-      <p class="info-main">San Domenico</p>
-      <p class="info-sub">Bologna</p>
+      <p class="info-main">San Domenico Savio</p>
+      <p class="info-sub">Via I. Andreini, Bologna</p>
     </div>
 
     <p class="after-text">Dopo la Santa Messa festeggeremo insieme presso</p>
 
     <div class="info-block">
       <p class="info-label">Ristorante</p>
-      <span class="placeholder">location da confermare</span>
+      <span class="placeholder">Villa Locanda Roveri, Via delle Biscie 35 Bologna</span>
     </div>
 
     <p class="rsvp-note">È gradita gentile conferma</p>
@@ -277,7 +277,7 @@
     <div class="form-row">
       <div class="field">
         <label>Nome e Cognome *</label>
-        <input type="text" id="nome" placeholder="Mario Rossi">
+        <input type="text" id="nome" placeholder="Beatrice Falso">
       </div>
       <div class="field">
         <label>Partecipanti *</label>
@@ -313,7 +313,7 @@
     <button class="btn-confirm" onclick="sendRSVP()">Conferma la presenza</button>
 
     <div class="success-box" id="success">
-      <p>Grazie mille! Ci vediamo il 24 maggio 🌸</p>
+      <p>Grazie mille! Ci vediamo il 24 maggio</p>
     </div>
   </div>
 
@@ -328,8 +328,7 @@ function sendRSVP() {
   var err    = document.getElementById('err-msg');
   if (!nome || !ospiti) { err.style.display = 'block'; return; }
   err.style.display = 'none';
-  var to      = 'digiovannifederica23@gmail.com';
-  var cc      = 'mattei.stefania@libero.it';
+  var to      = 'mattei.stefania@libero.it', 'falso.francesco1@gmail.com';
   var subject = encodeURIComponent('RSVP Comunione Beatrice — ' + nome);
   var body    = encodeURIComponent(
     'CONFERMA DI PRESENZA\n════════════════════\n\n' +
