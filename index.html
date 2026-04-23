@@ -320,25 +320,25 @@
 </div>
 
 <script>
-function sendRSVP() {
-  var nome   = document.getElementById('nome').value.trim();
-  var ospiti = document.getElementById('ospiti').value;
-  var pranzo = document.getElementById('pranzo').value || 'Non specificato';
-  var note   = document.getElementById('note').value.trim() || 'Nessuna nota';
-  var err    = document.getElementById('err-msg');
-  if (!nome || !ospiti) { err.style.display = 'block'; return; }
-  err.style.display = 'none';
-  var to = 'mattei.stefania@libero.it, falso.francesco1@gmail.com';
-  var subject = encodeURIComponent('RSVP Comunione Beatrice — ' + nome);
-  var body    = encodeURIComponent(
-    'CONFERMA DI PRESENZA\n════════════════════\n\n' +
-    'Nome: ' + nome + '\nPartecipanti: ' + ospiti +
-    '\nPresenza al pranzo: ' + pranzo + '\nNote / allergie: ' + note +
-    '\n\n────────────────────\nInviato tramite invito digitale — Prima Comunione di Beatrice, 24 Maggio 2025'
-  );
-  window.location.href = 'mailto:' + to + '?cc=' + cc + '&subject=' + subject + '&body=' + body;
-  document.getElementById('success').style.display = 'block';
-}
-</script>
+  function sendRSVP() {
+    var nome   = document.getElementById('nome').value.trim();
+    var ospiti = document.getElementById('ospiti').value;
+    var pranzo = document.getElementById('pranzo').value || 'Non specificato';
+    var note   = document.getElementById('note').value.trim() || 'Nessuna nota';
+    var err    = document.getElementById('err-msg');
+    if (!nome || !ospiti) { err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    var to      = 'mattei.stefania@libero.it,falso.francesco1@gmail.com';
+    var subject = encodeURIComponent('RSVP Comunione Beatrice — ' + nome);
+    var body    = encodeURIComponent(
+      'CONFERMA DI PRESENZA\n════════════════════\n\n' +
+      'Nome: ' + nome + '\nPartecipanti: ' + ospiti +
+      '\nPresenza al pranzo: ' + pranzo + '\nNote / allergie: ' + note +
+      '\n\n────────────────────\nInviato tramite invito digitale — Prima Comunione di Beatrice, 24 Maggio 2026'
+    );
+    window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+    document.getElementById('success').style.display = 'block';
+  }
+  </script>
 </body>
 </html>
